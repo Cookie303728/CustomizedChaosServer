@@ -83,7 +83,7 @@ if(inv_total(inv, tinderbox) < 1) {
     mes("You need a tinderbox to light a fire.");
     return;
 }
-inv_dropslot(inv, coord, $slot, ^lootdrop_duration);
+inv_dropitem(inv, coord, $log, 1, ^lootdrop_duration);
 if (%action_delay < map_clock) {
     p_stopaction;
     anim(human_createfire, 0);

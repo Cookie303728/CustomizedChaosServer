@@ -2,7 +2,8 @@
 scope=perm
 size=28
 protect=no
-runweight=yes
+runweight=no
+stackall=yes
 
 [worn]
 scope=perm
