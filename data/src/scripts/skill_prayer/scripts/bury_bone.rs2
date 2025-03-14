@@ -17,10 +17,11 @@ p_delay(0);
 
 // delete is after delay: https://www.youtube.com/watch?v=OnW0ZwXLze4&t=141s
 def_obj $last_item = inv_getobj(inv, $slot);
-inv_delslot(inv, $slot);
+inv_del(inv, $last_item, 1);
 stat_advance(prayer, oc_param($last_item, bone_exp));
 mes("You bury the bones.");
 
 if (afk_event = ^true) {
     @macro_event_prayer;
 }
+
