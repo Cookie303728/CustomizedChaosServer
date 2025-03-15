@@ -319,13 +319,15 @@ class World {
             }
         }
 
-        this.loginThread.postMessage({
-            type: 'world_startup'
-        });
-
-        this.friendThread.postMessage({
-            type: 'connect'
-        });
+        setTimeout(() => {
+            this.loginThread.postMessage({
+                type: 'world_startup'
+            });
+    
+            this.friendThread.postMessage({
+                type: 'connect'
+            });
+        }, 2000);
 
         if (!Environment.STANDALONE_BUNDLE) {
             if (!Environment.NODE_PRODUCTION) {
@@ -1331,6 +1333,10 @@ class World {
     }
 
     changeLoc(loc: Loc, typeID: number, shape: number, angle: number, duration: number) {
+        // If a dynamic loc is inactive, it should never return to the game world
+        if (loc.lifecycle === EntityLifeCycle.DESPAWN && !loc.isValid()) {
+            return;
+        }
         // Remove previous collision from game world
         const fromType: LocType = LocType.get(loc.type);
         if (fromType.blockwalk) {
