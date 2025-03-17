@@ -271,16 +271,7 @@ buttontype=target
 width=20
 height=20
 overlayer=com_131
-script1op1=inv_count,inventory:inv,firerune
-script1op2=inv_contains,wornitems:wear,staff_of_fire
-script1op3=inv_contains,wornitems:wear,fire_battlestaff
-script1op4=inv_contains,wornitems:wear,mystic_fire_staff
-script1=gt,2
-script2op1=inv_count,inventory:inv,naturerune
-script2=gt,0
-script3op1=stat_level,magic
-script3=gt,20
-graphic=magicoff,10
+graphic=magicon,10
 activegraphic=magicon,10
 actionverb=Cast on
 actiontarget=heldobj
@@ -2273,7 +2264,7 @@ height=68
 center=yes
 font=p12
 shadowed=yes
-text=Level 21 : Low Level Alchemy
+text=Level 1 : Low Level Alchemy
 colour=0xFFF000
 
 [com_133]
@@ -2290,61 +2281,12 @@ text=Converts an item into gold
 colour=0x6B6F33
 
 [com_134]
-layer=com_131
-type=model
-x=38
-y=35
-width=28
-height=28
-model=model_2399_obj
-zoom=900
-xan=512
 
 [com_135]
-layer=com_131
-type=model
-x=114
-y=35
-width=28
-height=28
-model=model_2734_obj
-zoom=900
-xan=512
 
 [com_136]
-layer=com_131
-type=text
-x=40
-y=62
-width=25
-height=11
-script1op1=inv_count,inventory:inv,firerune
-script1op2=inv_contains,wornitems:wear,staff_of_fire
-script1op3=inv_contains,wornitems:wear,fire_battlestaff
-script1op4=inv_contains,wornitems:wear,mystic_fire_staff
-script1=gt,2
-center=yes
-font=p11
-shadowed=yes
-text=%1/3
-colour=0xC00000
-activecolour=0x00C000
 
 [com_137]
-layer=com_131
-type=text
-x=116
-y=62
-width=23
-height=11
-script1op1=inv_count,inventory:inv,naturerune
-script1=gt,0
-center=yes
-font=p11
-shadowed=yes
-text=%1/1
-colour=0xC00000
-activecolour=0x00C000
 
 [com_138]
 type=layer

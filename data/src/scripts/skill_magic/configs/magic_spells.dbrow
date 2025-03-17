@@ -156,9 +156,9 @@ data=convertobj,stafforb,fire_orb,human_castchargeorb,chargefireorb_casting,char
 table=magic_spell_table
 data=spell,^lowlvl_alchemy
 data=members,false
-data=levelrequired,21
-data=runesrequired,naturerune,1,firerune,3,null,null
-data=experience,310
+data=levelrequired,1
+data=runesrequired,null,null,null,null,null,null
+data=experience,0
 
 [magic_spell_high_alch]
 table=magic_spell_table
