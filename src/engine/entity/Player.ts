@@ -63,7 +63,6 @@ import UpdateUid192 from '#/network/server/model/UpdatePid.js';
 import UpdateRebootTimer from '#/network/server/model/UpdateRebootTimer.js';
 import UpdateRunEnergy from '#/network/server/model/UpdateRunEnergy.js';
 import UpdateStat from '#/network/server/model/UpdateStat.js';
-import UpdateZoneFullFollows from '#/network/server/model/UpdateZoneFullFollows.js';
 import VarpLarge from '#/network/server/model/VarpLarge.js';
 import VarpSmall from '#/network/server/model/VarpSmall.js';
 import OutgoingMessage from '#/network/server/OutgoingMessage.js';
@@ -313,6 +312,7 @@ export default class Player extends PathingEntity {
     headicons: number = 0;
     appearance: number = -1;
     lastAppearance: number = 0;
+    lastAppearanceBytes: Uint8Array | null = null;
     baseLevels = new Uint8Array(21);
     lastStats: Int32Array = new Int32Array(21); // we track this so we know to flush stats only once a tick on changes
     lastLevels: Uint8Array = new Uint8Array(21); // we track this so we know to flush stats only once a tick on changes
@@ -437,6 +437,9 @@ export default class Player extends PathingEntity {
         this.timers.clear();
         this.heroPoints.clear();
         this.buildArea.clear(false);
+        this.appearance = -1;
+        this.lastAppearance = 0;
+        this.lastAppearanceBytes = null;
         this.isActive = false;
     }
 
@@ -1201,7 +1204,7 @@ export default class Player extends PathingEntity {
     }
 
     processInputTracking(): void {
-        this.input.process();
+        this.input.onCycle();
     }
 
     // ----
@@ -1313,6 +1316,7 @@ export default class Player extends PathingEntity {
         stream.release();
 
         this.lastAppearance = World.currentTick;
+        this.lastAppearanceBytes = appearance;
         return appearance;
     }
 
